@@ -72,7 +72,7 @@ public class TC_1 extends BaseTest {
 			//switching to kraftly main page
 			GenericMethods.switchtoWindowTitle(driver, "Kraftly");
 			
-			/*
+		
 			
 			
 			WebElement collectionWebelement = driver.findElement(By.xpath("//a[.='Collections']"));
@@ -90,7 +90,7 @@ public class TC_1 extends BaseTest {
 			
 			
 
-			
+			/*
 			GenericMethods.mouseMoveToElement(driver, homePagePO.getEleCollectionLink());
 			Thread.sleep(1000);
 			
@@ -102,7 +102,7 @@ public class TC_1 extends BaseTest {
 		    
 		    Thread.sleep(1000);
 		   
-			*/
+		
 		
 			WebElement collections = driver.findElement(By.id("collection"));
 			WebElement latestCollection = driver.findElement(By.xpath("//a[text()='Latest Collections ']"));
