@@ -85,7 +85,7 @@ public class TC_1 extends BaseTest {
 			act.moveToElement(latestCollecn).perform();
 			Thread.sleep(2000);
 			act.moveToElement(westernWear).click().perform();
-			Thread.sleep(6000);
+			//Thread.sleep(6000);
 			
 			
 			
