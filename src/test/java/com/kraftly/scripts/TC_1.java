@@ -102,6 +102,8 @@ public class TC_1 extends BaseTest {
 		    
 		    Thread.sleep(1000);
 		   
+		   
+		   
 		
 		
 			WebElement collections = driver.findElement(By.id("collection"));
