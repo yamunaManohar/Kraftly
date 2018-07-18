@@ -73,8 +73,17 @@ public class TC_1 extends BaseTest {
 			GenericMethods.switchtoWindowTitle(driver, "Kraftly");
 			
 		
-			
-			
+			WebElement collectionLink = homePagePO.getEleCollectionLink();
+			Actions act= new Actions(driver);
+			act.moveToElement(collectionLink).perform();
+			Thread.sleep(1000);
+			WebElement allLatestCollections = collectionsPO.getEleAllLatestCollections();
+			act.moveToElement(allLatestCollections).perform();
+			Thread.sleep(1000);
+			WebElement womensWestrenWearLink = collectionsPO.getEleWomensWestrenWearLink();
+			act.moveToElement(womensWestrenWearLink).click().perform();
+			Thread.sleep(1000);
+			/*
 			WebElement collectionWebelement = driver.findElement(By.xpath("//a[.='Collections']"));
 			WebElement latestCollecn = driver.findElement(By.xpath("//a[.='Latest Collections ']"));
 			WebElement westernWear = driver.findElement(By.xpath("//a[@href='/curations/sale-women-western-wear?ref=topmenu']"));
@@ -84,7 +93,8 @@ public class TC_1 extends BaseTest {
 			Thread.sleep(3000);
 			act.moveToElement(latestCollecn).perform();
 			Thread.sleep(2000);
-			act.moveToElement(westernWear).click().perform();
+			*/
+			//act.moveToElement(westernWear).click().perform();
 			//Thread.sleep(6000);
 			
 			
