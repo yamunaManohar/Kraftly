@@ -36,7 +36,13 @@ public class Collections extends BasePage{
 	{
 		return eleWeddingStore;
 	}
+	@FindBy(xpath="//a[text()='Latest Collections ']//..//a[text()='Gifts under 499']")
+	private WebElement eleGiftsUnder499;
 	
+	public WebElement getEleGiftsUnder499()
+	{
+		return eleGiftsUnder499;
+	}
 	@FindBy(xpath="//a[text()='Spring & Summer Fashion']")
 	private WebElement eleSpringAndSummerFashion;
 	

@@ -48,4 +48,11 @@ public class ProductDetailsPage extends BasePage  {
 	{
 		return eleWishlistSymbol;
 	}
+	@FindBy(xpath="//div[text()='More Than 50% Off']")
+	private WebElement eleCheckBoxMoreThan50;
+	
+	public WebElement getCheckBoxMoreThan50()
+	{
+		return eleCheckBoxMoreThan50;
+	}
 }

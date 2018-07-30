@@ -31,5 +31,25 @@ public class HomePage  extends BasePage{
 	{
 		return eleLogOutLink;
 	}
+	@FindBy(xpath="//p[text()='Hi Flagroot']")
+	private WebElement eleDetailsInfo;
 	
+	public WebElement getEleDetails()
+	{
+		return eleDetailsInfo;
+	}
+	@FindBy(xpath="//label[text()='User Name:']//..//div[1]")
+	private WebElement eleUserName;
+	
+	public WebElement getUserName()
+	{
+		return eleUserName;
+	}
+	@FindBy(xpath=".//body")
+	private WebElement eleScroll;
+	
+	public WebElement getEleScroll()
+	{
+		return eleScroll;
+	}
 }

@@ -9,6 +9,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -23,6 +26,8 @@ public abstract class BaseTest {
 	
 	public WebDriver driver;
 	public WebDriverWait wait;
+	public ExtentReports reports; 
+	public ExtentTest logger;
 	
 	@BeforeClass
 	public void browserLaunch()
@@ -42,14 +47,18 @@ public abstract class BaseTest {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		driver.get("https://kraftly.com/");
+		
+		reports= new ExtentReports(Auto_Constatnts.REPORTS_PATH+"\\report1.html");
+		logger=reports.startTest("First Test");
 	}
 	
 	
 	@AfterClass
 	public void closeBrowser() 
 	{
-		//closes the browser
+		reports.flush();
 		driver.quit();
+		//reports.close();
 	}
 	
 
