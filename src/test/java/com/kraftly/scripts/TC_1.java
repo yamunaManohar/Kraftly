@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import javax.security.auth.login.AccountNotFoundException;
 
@@ -22,6 +23,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
+import com.google.common.base.Verify;
 import com.kraftly.generics.Auto_Constatnts;
 import com.kraftly.generics.BaseTest;
 import com.kraftly.generics.GenericMethods;
@@ -64,25 +66,28 @@ public class TC_1 extends BaseTest {
 			Thread.sleep(1000);
 			String email= InputData.getPropertyValue(Auto_Constatnts.INPUTPROPERTIES_PATH,"EMAILID");
 			String password	= InputData.getPropertyValue(Auto_Constatnts.INPUTPROPERTIES_PATH, "PASSWORD");
-			
+			driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 			googleSignInPO.geteleGoogleEmailTextFld().sendKeys(email);
-			Thread.sleep(1000);
+			
 			
 			googleSignInPO.geteleGoogleEmailNextBTN().click();
-			Thread.sleep(1000);
+			driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 			googleSignInPO.getEleGooglePasswordBTN().sendKeys(password);
-			Thread.sleep(100);
+			
 			googleSignInPO.getEleGooglePasswordNextBTN().click();
-			Thread.sleep(100);
+			
 			//switching to kraftly main page
 			GenericMethods.switchtoWindowTitle(driver, "Kraftly");
+			
 			homePagePO.getEleAccountBTN().click();
 			String userName = homePagePO.getEleDetails().getText();
 			
 			//GenericMethods.webDriverWaitTitleContains(driver,"Hi");
 			Assert.assertEquals(userName, "Hi Flagroot");
+		
 			
 			GenericMethods.HoverAndClick(driver, homePagePO.getEleCollectionLink(), collectionsPO.getEleLatestCollectionLink(),collectionsPO.getEleGiftsUnder499());
+			/*
 			GenericMethods.webDriverWaitVisibilityOfElement(driver, detailsPagepo.getCheckBoxMoreThan50());
 			GenericMethods.mouseMoveToElement(driver, detailsPagepo.getCheckBoxMoreThan50());
 			detailsPagepo.getCheckBoxMoreThan50().click();
@@ -92,6 +97,7 @@ public class TC_1 extends BaseTest {
 			elem.sendKeys(Keys.PAGE_DOWN);*/
 			Thread.sleep(5000);
 			logger.log(LogStatus.PASS, "This test is passed");
+			
 		}
 		
 }
